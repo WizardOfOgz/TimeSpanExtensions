@@ -1,7 +1,4 @@
-Andy Ogzewalla
-
-Having spent much time developing with Ruby on Rails I grew quite fond of how easy
-TimeSpanExt is a .NET library which makes using timespans useful and easy.  The functionality of TimeSpanExt greatly exceeds that of the TimeSpan class that ships with .NET.
+TimeSpanExt is a .NET library which makes timespans useful and easy.  The functionality of TimeSpanExt greatly exceeds that of the TimeSpan class that ships with .NET.
 
 * Setup
 
@@ -14,27 +11,25 @@ TimeSpanExt is a .NET library which makes using timespans useful and easy.  The 
 3) Include the library in your project.
 
 * Why use TimeSpanExt?
-- The code looks nice:  DateTime searchStartDate = 1.Month().Ago;
-- Supports complex expressions:  DateTime searchEndDate = searchStartDate + (1.Month() - 1.Day());
-- Time spans can be stored and applied to more than one DateTime yielding the correct results:
+    - The code looks nice:  DateTime searchStartDate = 1.Month().Ago;
+    - Supports complex expressions:  DateTime searchEndDate = searchStartDate + (1.Month() - 1.Day());
+    - Time spans can be stored and applied to more than one DateTime yielding the correct results:
 
-    class ScheduleEvent
-    {
-        public string Name { get; set; }
-        public DateTime StartAt { get; set; }
-        public TimeSpanExt Duration { get; set; }
-        public DateTime EndsAt { 
-            get{ return StartTime + Duration; } 
+        class ScheduleEvent
+        {
+            public string Name { get; set; }
+            public DateTime StartAt { get; set; }
+            public TimeSpanExt Duration { get; set; }
+            public DateTime EndsAt { 
+                get{ return StartTime + Duration; } 
+            }
         }
-    }
-    ...
-      var vacationDuration = 1.Month();
-      var myVacation = new ScheduledEvent{ Name="One-month vacation", StartTime=DateTime.Parse("1/31/2011"), Duration=vacationDuration);
+        
+        var vacationDuration = 1.Month();
+        var myVacation = new ScheduledEvent{ Name="One-month vacation", StartTime=DateTime.Parse("1/31/2011"), Duration=vacationDuration);
 
-      DateTime backToWork = myVacation.EndsAt;            // Feb 28, 2011 - Wait that's only 28 days from the start of my vacation!
+        DateTime backToWork = myVacation.EndsAt;            // Feb 28, 2011 - Wait that's only 28 days from the start of my vacation!
 
-      myVacation.StartTime = DateTime.Parse("3/30/2011"); // Change the start date.  Duration is still one month.
-      DateTime backToWork = myVacation.EndsAt;            // Apr 30, 2011 - Much better, taking off 31 days.
-    ...
-
-
+        myVacation.StartTime = DateTime.Parse("3/30/2011"); // Change the start date.  Duration is still one month.
+        DateTime backToWork = myVacation.EndsAt;            // Apr 30, 2011 - Much better, taking off 31 days.
+  

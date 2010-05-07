@@ -33,3 +33,16 @@ TimeSpanExt is a .NET library which makes timespans useful and easy.  The functi
         myVacation.StartTime = DateTime.Parse("3/30/2011"); // Change the start date.  Duration is still one month.
         DateTime backToWork = myVacation.EndsAt;            // Apr 30, 2011 - Much better, taking off 31 days.
   
+
+* Complex TimeSpanExts
+
+TimeSpanExt also supports addition and subtraction.  The order of the operands is preserved as is shown in this example:
+
+    var monthPlusDay = 1.Month() + 1.Day();
+    var dayPlusMonth = 1.Day() + 1.Month();
+
+    DateTime dt = DateTime.Parse("2/28/2010");
+
+    DateTime result;
+    result = dt + monthPlusDay;  // returns 3/29/2010
+    result = dt + dayPlusMonth;  // returns 4/1/2010

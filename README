@@ -5,7 +5,7 @@ TimeSpanExt is a .NET library which makes timespans useful and easy.  The functi
 1) Get the source:
 
     git clone git://github.com/WizardOfOgz/TimeSpanExtensions.git
-	
+  
 2) Build the TimeSpanExtensions project
 
 3) Include the library in your project.
